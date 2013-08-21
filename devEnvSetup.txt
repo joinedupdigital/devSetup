@@ -1,0 +1,161 @@
+
+
+
+Launch instance
+> ec2-run-instances -v --debug ami-ce7b6fba -k ${EC2_KEYPAIR} -t t1.micro
+Display running instances 
+> ec2-describe-instances
+Login to instance using machine name from "ec2-describe-instances"
+> ssh -i BD_AWS_UBT1204_v1.pem ubuntu@ec2-54-229-70-215.eu-west-1.compute.amazonaws.com
+
+Install Git
+> sudo apt-get install -y git-core
+Get JUD devSetup
+> git clone https://github.com/joinedupdigital/devSetup
+Run JUD devSetup.sh
+> ./devSetup/setup/setup.sh
+
+
+
+
+sudo apt-get install -y git-core
+
+-Build local repo
+cd ~
+mkdir myrepo
+cd myrepo/ 
+git config --global user.name "Bernie Doyle"
+git config --global user.email "00doyle@googlemail.com"
+git init
+
+
+git clone https://github.com/00doyle/myrepo
+cd myrepo/ 
+git config --global user.name "Bernie Doyle"
+git config --global user.email "00doyle@googlemail.com"
+
+touch bd2.txt
+git add bd2.txt 
+git commit -m "my commit message"
+
+- push Git changes back to server
+git push -u origin master
+
+
+
+
+GIT STUFF
+   32  git status
+   33  echo -e 'line1\nline2' > file.txt
+   34  git status
+   35  git add file.txt
+   36  git status
+   37  git status
+   38  git commit -m "Added first file"
+   39  git log
+   40  echo -e "line3" >> file.txt 
+   41  git status
+   42  git diff file.txt
+   43  git add file.txt
+   44  git status
+   45  git commit -m "Added new line to file."
+   46  git log
+   47  git log -p
+   48  git log -p --color
+
+
+
+Create a new repository on the command line
+
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:joinedupdigital/devSetup.git
+git push -u origin master
+
+
+
+Push an existing repository from the command line
+
+git remote add origin git@github.com:joinedupdigital/devSetup.git
+git push -u origin master
+
+ssh git@github.com:joinedupdigital/devSetup.git
+
+https://github.com/joinedupdigital/devSetup.git
+
+
+git clone https://github.com/joinedupdigital/devSetup.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- clone git setup files. Rebuild this on myGit
+git clone https://github.com/startup-class/setup.git
+git clone https://github.com/startup-class/dotfiles.git
+
+- Run setup dev env script
+./setup/setup.sh
+
+ln -sb dotfiles/.screenrc .
+ln -sb dotfiles/.bash_profile .
+ln -sb dotfiles/.bashrc .
+ln -sb dotfiles/.bashrc_custom .
+mv .emacs.d .emacs.d~
+ln -s dotfiles/.emacs.d .
+
+wget https://spark-public.s3.amazonaws.com/startup/code/fibonacci.js
+wget raw.github.com/startup-class/dotfiles/master/.screen -0 .screenrc
+
+screen -r
+emacs -nw -Q
+emacs -nw fibonacci.js
+
+
+See also http://github.com/startup-class/setup to install prerequisite programs. If all goes well, in addition to a more useful prompt, now you can do emacs -nw hello.js and hitting C-c! to launch an interactive SSJS REPL, among many other features.
+
+
+---------------------------------------------
+
+AMAZON COMMAND LINE TOOLS
+
+- Amzon ENVIRONMENT VARRIABLES FOR $HOME/.bashrc
+# FOR CONNECTING TO AMAZON SERVER INSTANCE
+export EC2_KEYPAIR=BD_AWS_UBT1204_v1 # name only, not the file name
+export EC2_URL=https://ec2.eu-west-1.amazonaws.com
+export EC2_PRIVATE_KEY=$HOME/.ssh/pk-BTEVW7EBVOBHFS3NJAPP2QKCJKONRF7Q.pem
+export EC2_CERT=$HOME/.ssh/cert-BTEVW7EBVOBHFS3NJAPP2QKCJKONRF7Q.pem
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
+
+- Amazon key pairs 
+chmod 400 cert-BTEVW7EBVOBHFS3NJAPP2QKCJKONRF7Q.pem 
+chmod 400 pk-BTEVW7EBVOBHFS3NJAPP2QKCJKONRF7Q.pem 
+ec2-authorize default -p 22
+ec2-describe-images -o self -o amazon
+
+- Launch instance
+ec2-run-instances -v --debug ami-ce7b6fba -k ${EC2_KEYPAIR} -t t1.micro
+- Display running instances 
+ec2-describe-instances
+- Login to instance using machine name from "ec2-describe-instances"
+ssh -i BD_AWS_UBT1204_v1.pem ubuntu@ec2-54-229-70-215.eu-west-1.compute.amazonaws.com
+
+
+
+
