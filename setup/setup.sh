@@ -31,12 +31,7 @@ sudo apt-get install -y emacs24-nox emacs24-el emacs24-common-non-dfsg
 # https://toolbelt.heroku.com/debian
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
-
-
-
 # git pull and install dotfiles as well
-mv $HOME/devSetup/dotfiles $HOME
-
 cd $HOME
 if [ -d ./dotfiles/ ]; then
     mv dotfiles dotfiles.old
@@ -45,6 +40,7 @@ if [ -d .emacs.d/ ]; then
     mv .emacs.d .emacs.d~
 fi
 #git clone https://github.com/startup-class/dotfiles.git
+mv $HOME/devSetup/dotfiles $HOME
 ln -sb dotfiles/.screenrc .
 ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
